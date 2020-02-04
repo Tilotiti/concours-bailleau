@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2koI_2Q" resname="site.title">
+        <source>site.title</source>
+        <target>Bailleau Contest</target>
+      </trans-unit>
+      <trans-unit id="OZbtkgS" resname="nav.info">
+        <source>nav.info</source>
+        <target>Informations</target>
+      </trans-unit>
+      <trans-unit id="QnJX9Pp" resname="nav.sign">
+        <source>nav.sign</source>
+        <target>Registration</target>
+      </trans-unit>
+      <trans-unit id="UYazUdf" resname="nav.news">
+        <source>nav.news</source>
+        <target>News</target>
+      </trans-unit>
+      <trans-unit id="Pj_iZww" resname="nav.task">
+        <source>nav.task</source>
+        <target>Task and results</target>
+      </trans-unit>
+      <trans-unit id="zmgLe4B" resname="nav.download">
+        <source>nav.download</source>
+        <target>Downloads</target>
+      </trans-unit>
+      <trans-unit id="G2VfVs2" resname="nav.gallery">
+        <source>nav.gallery</source>
+        <target>Gallery</target>
+      </trans-unit>
+      <trans-unit id="mJdvO0b" resname="nav.club">
+        <source>nav.club</source>
+        <target>Club</target>
+      </trans-unit>
+      <trans-unit id="GVN3OA3" resname="nav.pilots">
+        <source>nav.pilots</source>
+        <target>Pilots</target>
+      </trans-unit>
+      <trans-unit id="TqjcdsD" resname="nav.contact">
+        <source>nav.contact</source>
+        <target>Contact</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

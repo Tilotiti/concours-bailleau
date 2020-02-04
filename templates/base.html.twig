@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ 'site.title' | trans }}{% endblock %}</title>
+    {% block css %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<section class="container p-0">
+    <header>
+        <div id="locales">
+            <a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params') | merge({'_locale': 'fr'}) ) }}">
+                <i class="flag-icon flag-icon-fr"></i>
+            </a>
+            <a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params') | merge({'_locale': 'en'}) ) }}">
+                <i class="flag-icon flag-icon-gb"></i>
+            </a>
+        </div>
+        <a href="{{ path('www') }}" title="">
+            <img src="{{ asset('build/images/logo.png') }}" alt="{{ 'site.title' | trans }}"/>
+        </a>
+        <nav>
+            <a href="{{ path('www') }}"
+               class="{{ app.request.get('_route') == 'www' ? 'active' }}">{{ 'nav.info' | trans }}</a>
+            <a href="{{ path('www_sign') }}"
+               class="{{ app.request.get('_route') == 'www_sign' ? 'active' }}">{{ 'nav.sign' | trans }}</a>
+            <a href="http://planeur-bailleau.org/" target="_blank">{{ 'nav.club' | trans }}</a>
+            <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2020-bailleau-armenonville-2020" target="_blank">{{ 'nav.news' | trans }}</a>
+            <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2020-bailleau-armenonville-2020/pilots" target="_blank">{{ 'nav.pilots' | trans }}</a>
+            <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2020-bailleau-armenonville-2020/results" target="_blank">{{ 'nav.task' | trans }}</a>
+            <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2020-bailleau-armenonville-2020/downloads" target="_blank">{{ 'nav.download' | trans }}</a>
+            <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2020-bailleau-armenonville-2020/gallery" target="_blank">{{ 'nav.gallery' | trans }}</a>
+            <a href="{{ path('www_contact') }}"
+               class="{{ app.request.get('_route') == 'www_contact' ? 'active' }}">{{ 'nav.contact' | trans }}</a>
+        </nav>
+    </header>
+    <main class="container-fluid">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </main>
+</section>
+<footer>
+    &copy; Bailleau {{ 'now' | date('Y') }}
+</footer>
+{% block js %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>
