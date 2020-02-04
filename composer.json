@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "friendsofsymfony/jsrouting-bundle": "^2.5",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "5.0.*",
@@ -65,7 +66,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "fos:js-routing:dump --format=json --target=public/js/routes.json": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

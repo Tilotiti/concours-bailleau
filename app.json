@@ -1,0 +1,39 @@
+{
+  "name": "Concours Bailleau",
+  "repository": "https://github.com/Tilotiti/concours-bailleau",
+  "env": {
+    "SYMFONY_ENV": "prod",
+    "SECRET": {
+      "generator": "secret"
+    },
+    "APP": "pr",
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "TZ": "Europe/Paris",
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "stack": "heroku-18",
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-locale"
+    }
+  ]
+}

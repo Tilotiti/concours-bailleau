@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Suppression de la base de donnée"
+dropdb concours-bailleau --u postgres
+
+echo "Importation de la base de donnée de production"
+PGUSER=postgres heroku pg:pull DATABASE_URL concours-bailleau --app concours-bailleau --exclude-table-data "sessions"
+
+echo "Lancement de l'application"
+bin/release
