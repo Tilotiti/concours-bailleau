@@ -39,6 +39,12 @@ class Partner implements TranslatableInterface
     private $logo;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string")
+     */
+    private $link;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -84,6 +90,22 @@ class Partner implements TranslatableInterface
     public function setLogo(?string $logo): void
     {
         $this->logo = $logo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param string|null $link
+     */
+    public function setLink(?string $link): void
+    {
+        $this->link = $link;
     }
 
 }
