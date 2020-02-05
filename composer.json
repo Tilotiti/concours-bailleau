@@ -33,12 +33,12 @@
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
+        "symfony/profiler-pack": "*",
+        "symfony/debug-pack": "*"
     },
     "require-dev": {
-        "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
         "symfony/test-pack": "*"
     },
     "config": {
