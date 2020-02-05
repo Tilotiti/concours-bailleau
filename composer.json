@@ -35,11 +35,11 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*",
         "symfony/profiler-pack": "*",
-        "symfony/debug-pack": "*"
-    },
-    "require-dev": {
+        "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/test-pack": "*"
+    },
+    "require-dev": {
     },
     "config": {
         "preferred-install": {
