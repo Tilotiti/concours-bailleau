@@ -4,20 +4,20 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Year
  * @package App\Entity
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\YearRepository")
  */
 class Year
 {
     /**
      * @var int
      * @ORM\Id()
-     * @Assert\Unique()
      * @ORM\Column(type="integer", unique=true)
      * @Assert\GreaterThanOrEqual(2020)
      */
@@ -37,13 +37,14 @@ class Year
 
     /**
      * @var Page|null
-     * @ORM\ManyToOne(targetEntity="Page")
+     * @ORM\ManyToOne(targetEntity="Page", cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $page;
 
     public function __construct()
     {
+        $this->id = date('Y');
         $this->contests = new ArrayCollection();
         $this->public = false;
     }
@@ -115,5 +116,33 @@ class Year
     public function setPage(?Page $page): void
     {
         $this->page = $page;
+    }
+
+    public function getPublic(): ?bool
+    {
+        return $this->public;
+    }
+
+    public function addContest(Contest $contest): self
+    {
+        if (!$this->contests->contains($contest)) {
+            $this->contests[] = $contest;
+            $contest->setYear($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContest(Contest $contest): self
+    {
+        if ($this->contests->contains($contest)) {
+            $this->contests->removeElement($contest);
+            // set the owning side to null (unless already changed)
+            if ($contest->getYear() === $this) {
+                $contest->setYear(null);
+            }
+        }
+
+        return $this;
     }
 }

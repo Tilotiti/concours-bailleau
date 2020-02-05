@@ -11,10 +11,19 @@ use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
 /**
  * Class PageTranslation
  * @package App\Entity
+ * @ORM\Entity()
  */
 class PageTranslation implements TranslationInterface
 {
     use TranslationTrait;
+
+    /**
+     * @var integer
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
     /**
      * @var string|null
@@ -27,6 +36,22 @@ class PageTranslation implements TranslationInterface
      * @ORM\Column(type="text")
      */
     private $content;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return string|null

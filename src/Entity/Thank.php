@@ -11,7 +11,7 @@ use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 /**
  * Class Thank
  * @package App\Entity
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\ThankRepository")
  */
 class Thank implements TranslatableInterface
 {

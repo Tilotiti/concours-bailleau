@@ -1,0 +1,45 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Années{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Année</th>
+                <th class="text-right">
+                    <a href="{{ path('admin_year_add') }}" class="btn btn-sm btn-success">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in years %}
+                <tr class="{% if item.public %}table-success{% elseif year <= item %}table-warning{% else %}table-danger{% endif %}">
+                    <td>{{ year }}</td>
+                    <td class="text-right">
+                        {% if not item.public %}
+                            <a href="{{ path('admin_year_public', {
+                                'year': item.id
+                            }) }}" class="btn btn-sm btn-success" data-confirm="En validant, vous mettez en ligne le contenu associé à cette année là.">
+                                <i class="fa fa-check"></i>
+                            </a>
+                        {% endif %}
+                        <a href="{{ path('admin_year_edit', {
+                            'year': item.id
+                        }) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <em>Aucune année de disponible</em>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

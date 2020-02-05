@@ -11,7 +11,7 @@ use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 /**
  * Class Partner
  * @package App\Entity
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  */
 class Partner implements TranslatableInterface
 {

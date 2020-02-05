@@ -10,7 +10,7 @@ use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 /**
  * Class Classe
  * @package App\Entity
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\ClasseRepository")
  */
 class Classe implements TranslatableInterface
 {
