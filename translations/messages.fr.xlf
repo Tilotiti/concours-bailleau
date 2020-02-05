@@ -1,50 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="2koI_2Q" resname="site.title">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="fr">
+  <file id="messages.fr">
+    <unit id="2koI_2Q" name="site.title">
+      <segment>
         <source>site.title</source>
         <target>Concours Bailleau</target>
-      </trans-unit>
-      <trans-unit id="OZbtkgS" resname="nav.info">
+      </segment>
+    </unit>
+    <unit id="OZbtkgS" name="nav.info">
+      <segment>
         <source>nav.info</source>
         <target>Informations</target>
-      </trans-unit>
-      <trans-unit id="QnJX9Pp" resname="nav.sign">
+      </segment>
+    </unit>
+    <unit id="QnJX9Pp" name="nav.sign">
+      <segment>
         <source>nav.sign</source>
         <target>Inscription</target>
-      </trans-unit>
-      <trans-unit id="UYazUdf" resname="nav.news">
+      </segment>
+    </unit>
+    <unit id="UYazUdf" name="nav.news">
+      <segment>
         <source>nav.news</source>
         <target>News</target>
-      </trans-unit>
-      <trans-unit id="Pj_iZww" resname="nav.task">
+      </segment>
+    </unit>
+    <unit id="Pj_iZww" name="nav.task">
+      <segment>
         <source>nav.task</source>
         <target>Epreuves et Résultats</target>
-      </trans-unit>
-      <trans-unit id="zmgLe4B" resname="nav.download">
+      </segment>
+    </unit>
+    <unit id="zmgLe4B" name="nav.download">
+      <segment>
         <source>nav.download</source>
         <target>Téléchargements</target>
-      </trans-unit>
-      <trans-unit id="G2VfVs2" resname="nav.gallery">
+      </segment>
+    </unit>
+    <unit id="G2VfVs2" name="nav.gallery">
+      <segment>
         <source>nav.gallery</source>
         <target>Gallerie</target>
-      </trans-unit>
-      <trans-unit id="mJdvO0b" resname="nav.club">
+      </segment>
+    </unit>
+    <unit id="mJdvO0b" name="nav.club">
+      <segment>
         <source>nav.club</source>
         <target>Club</target>
-      </trans-unit>
-      <trans-unit id="GVN3OA3" resname="nav.pilots">
+      </segment>
+    </unit>
+    <unit id="GVN3OA3" name="nav.pilots">
+      <segment>
         <source>nav.pilots</source>
         <target>Pilotes</target>
-      </trans-unit>
-      <trans-unit id="TqjcdsD" resname="nav.contact">
+      </segment>
+    </unit>
+    <unit id="TqjcdsD" name="nav.contact">
+      <segment>
         <source>nav.contact</source>
         <target>Contact</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
+    <unit id="ursKFnc" name="nav.login">
+      <segment>
+        <source>nav.login</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+    <unit id="YfUYcGV" name="user.email">
+      <segment>
+        <source>user.email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="pVZ4m.T" name="user.password">
+      <segment>
+        <source>user.password</source>
+        <target>Mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="huSwyQL" name="login.remember_me">
+      <segment>
+        <source>login.remember_me</source>
+        <target>Se souvenir de moi</target>
+      </segment>
+    </unit>
+    <unit id="jlMj..y" name="login.submit">
+      <segment>
+        <source>login.submit</source>
+        <target>Se connnecter</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
