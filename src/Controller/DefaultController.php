@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class DefaultController
  * @package App\Controller
- * @Route("{_locale}", requirements={"_locale": "en|fr|"}, defaults={"fr"})
+ * @Route("/{_locale}", requirements={"_locale": "en|fr|"}, defaults={"_locale": "fr"})
  */
 class DefaultController extends AbstractController
 {

@@ -17,4 +17,5 @@ return [
     A2lix\AutoFormBundle\A2lixAutoFormBundle::class => ['all' => true],
     A2lix\TranslationFormBundle\A2lixTranslationFormBundle::class => ['all' => true],
     Translation\Bundle\TranslationBundle::class => ['all' => true],
+    Tiloweb\PaginationBundle\TilowebPaginationBundle::class => ['all' => true],
 ];

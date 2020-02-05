@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 /**
  * Class SecurityController
  * @package App\Controller
- * @Route("{_locale}", requirements={"_locale": "en|fr|"}, defaults={"fr"})
+ * @Route("/{_locale}", requirements={"_locale": "en|fr|"}, defaults={"_locale": "fr"})
  */
 class SecurityController extends AbstractController
 {
@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('www/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
     /**
