@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ year.page.title }}{% endblock %}
 {% block body %}
-    <h1>{{ 'nav.info' | trans }}</h1>
-    <p>lorem ipsum</p>
+    {{ year.page.content | raw }}
 {% endblock %}

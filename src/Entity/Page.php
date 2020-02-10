@@ -41,4 +41,9 @@ class Page implements TranslatableInterface
     {
         $this->id = $id;
     }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
 }
