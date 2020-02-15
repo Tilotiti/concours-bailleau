@@ -48,11 +48,18 @@ class Year
      */
     private $partners;
 
+    /**
+     * @var Thank[]|ArrayCollection
+     * @ORM\OneToMany(targetEntity="Thank", mappedBy="year")
+     */
+    private $thanks;
+
     public function __construct()
     {
         $this->id = date('Y');
         $this->contests = new ArrayCollection();
         $this->partners = new ArrayCollection();
+        $this->thanks = new ArrayCollection();
         $this->public = false;
     }
 
@@ -167,5 +174,21 @@ class Year
     public function setPartners($partners): void
     {
         $this->partners = $partners;
+    }
+
+    /**
+     * @return Thank[]|ArrayCollection
+     */
+    public function getThanks()
+    {
+        return $this->thanks;
+    }
+
+    /**
+     * @param Thank[]|ArrayCollection $thanks
+     */
+    public function setThanks($thanks): void
+    {
+        $this->thanks = $thanks;
     }
 }

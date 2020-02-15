@@ -66,4 +66,8 @@ class YearService
     public function getPartners() {
         return $this->year->getPartners();
     }
+
+    public function getThanks() {
+        return $this->year->getThanks();
+    }
 }

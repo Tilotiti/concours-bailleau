@@ -2,7 +2,24 @@
 
 {% block title %}{{ 'nav.partner' | trans }}{% endblock %}
 {% block body %}
-    {# TODO : Afficher tous les partenaires #}
+    <div class="row d-flex align-items-stretch">
+        {% for partner in year.partners %}
+            <a class="col-12 col-md-6 col-lg-4 text-center d-block mb-4" href="{{ partner.link ?? '#' }}" title="{{ partner.title }}" target="_blank">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <strong class="h6 d-block text-center">{{ partner.title }}</strong>
+                    </div>
+                    {% if partner.logo %}
+                        <div class="p-3 w-100">
+                            <img src="{{ partner.logo }}" alt="{{ partner.title }}" style="width: 90%; margin: auto; max-width: 100px;" />
+                        </div>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
     <h1>{{ 'nav.thank' | trans }}</h1>
-    {# TODO : Afficher tous les remerciement #}
+    {% for thank in year.thanks %}
+        {{ thank.content | raw }}
+    {% endfor %}
 {% endblock %}

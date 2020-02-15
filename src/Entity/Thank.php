@@ -27,7 +27,7 @@ class Thank implements TranslatableInterface
 
     /**
      * @var Year|null
-     * @ORM\ManyToOne(targetEntity="Year")
+     * @ORM\ManyToOne(targetEntity="Year", inversedBy="thanks")
      */
     private $year;
 
