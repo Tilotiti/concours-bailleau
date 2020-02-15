@@ -40,16 +40,51 @@
         {% endblock %}
     </header>
     <main class="container-fluid">
-        {% block filter %}{% endblock %}
-        <h1>{{ block('title') }}</h1>
-        {% for label, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}">
-                    {{ message }}
-                </div>
+        {% block aside %}
+            <aside>
+                <main>
+                    <h2>{{ 'contest' | trans }}</h2>
+                    <ul>
+                        {% for contest in year.contests %}
+                            <li>
+                                <a href="{{ path('www_contest', {
+                                    'contest': contest.id,
+                                    'slug': contest.slug
+                                }) }}">
+                                    <strong>{{ contest.title }}</strong>
+                                    {{ contest.description }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </main>
+                <aside>
+                    <h3>{{ 'nav.partner' | trans }}</h3>
+                    <ul>
+                        {% for partner in year.partners | filter(partner => partner.logo) %}
+                            <li>
+                                <a href="{{ partner.link ?? '#' }}" title="{{ partner.title }}">
+                                    <img src="{{ partner.logo }}" alt="{{ partner.title }}">
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ path('www_partner') }}">{{ 'partner.link' | trans }}</a>
+                </aside>
+            </aside>
+        {% endblock %}
+        <article>
+            {% block filter %}{% endblock %}
+            <h1>{{ block('title') }}</h1>
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
-        {% block body %}{% endblock %}
+            {% block body %}{% endblock %}
+        </article>
     </main>
 </section>
 <footer>

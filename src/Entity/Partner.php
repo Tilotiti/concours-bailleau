@@ -29,7 +29,7 @@ class Partner implements TranslatableInterface
 
     /**
      * @var Year
-     * @ORM\ManyToOne(targetEntity="Year")
+     * @ORM\ManyToOne(targetEntity="Year", inversedBy="partners")
      * @ORM\JoinColumn()
      */
     private $year;

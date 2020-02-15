@@ -62,4 +62,8 @@ class YearService
     public function getPage(): Page {
         return $this->year->getPage();
     }
+
+    public function getPartners() {
+        return $this->year->getPartners();
+    }
 }

@@ -8,6 +8,9 @@
     "aws/aws-sdk-php": {
         "version": "3.133.15"
     },
+    "cocur/slugify": {
+        "version": "v4.0.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

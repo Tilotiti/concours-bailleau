@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
@@ -61,6 +62,10 @@ class ContestTranslation implements TranslationInterface
     public function getTitle(): ?string
     {
         return $this->title;
+    }
+
+    public function getSlug(): ?string {
+        return (new Slugify())->slugify($this->getTitle());
     }
 
     /**

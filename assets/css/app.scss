@@ -17,6 +17,12 @@ body {
 
 body > section {
     background-color: #fff;
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
 }
 
 body > section > header {
@@ -39,22 +45,24 @@ body > section > header {
     }
 
     nav {
-        display: table;
+        display: flex;
         background-color: #f3f3f3;
-        height: 41px;
         line-height: 41px;
         font-family: 'Yanone Kaffeesatz', sans-serif;
         font-size: 0;
         width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
         a {
             text-align: center;
-            display: table-cell;
+            display: block;
             padding: 0 20px;
             color: #444;
             font-size: 20px;
             font-weight: lighter;
             border-right: solid 1px #fff;
+            flex-shrink: 1;
 
             &.active, &:hover {
                 background-color: #000;
@@ -68,6 +76,39 @@ body > section > header {
 body > section > main {
     padding: 20px;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+
+    & > aside {
+        grid-column: 1 / 13;
+
+        @include media-breakpoint-up(md) {
+            grid-column: 1 / 5;
+        }
+
+        @include media-breakpoint-up(lg) {
+            grid-column: 1 / 4;
+        }
+    }
+
+    & > article {
+        position: relative;
+        grid-column: 1 / 13;
+
+        @include media-breakpoint-up(md) {
+            grid-column: 5 / 13;
+        }
+
+        @include media-breakpoint-up(lg) {
+            grid-column: 4 / 13;
+        }
+
+
+        p {
+            text-align: justify;
+        }
+    }
 }
 
 body > footer {
@@ -103,13 +144,107 @@ h1, h2, h3, h4, h5 {
 .filter {
     margin-bottom: 20px;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         position: absolute;
         right: 20px;
         top: 20px;
 
         .row {
             flex-wrap: nowrap;
+        }
+    }
+}
+
+body > section > main > aside {
+    & > main {
+        background-color: $orange;
+        padding: 15px;
+        color: #fff;
+
+        h2 {
+            color: #fff;
+        }
+
+        ul {
+            list-style: square;
+            padding-left: 15px;
+            margin: 0;
+
+            li {
+                margin-bottom: 10px;
+                font-size: 0.9em;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a {
+                    color: #fff;
+
+                    &:hover {
+                        color: $blue;
+                        text-decoration: none;
+                    }
+
+                    strong {
+                        display: block;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+
+        }
+    }
+
+    & > aside {
+        padding: 15px;
+        margin-bottom: 15px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                box-sizing: border-box;
+                flex-grow: 1;
+                width: 100px;
+                text-align: center;
+
+                &:nth-child(odd) {
+                    padding-right: 10px;
+                }
+
+                &:nth-child(even) {
+                    padding-left: 10px;
+                }
+
+                a {
+                    display: block;
+                    vertical-align: middle;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        & > a {
+            display: block;
+            text-align: center;
+            background: $blue;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: 10px;
         }
     }
 }

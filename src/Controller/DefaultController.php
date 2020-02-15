@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 
+use App\Entity\Contest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -32,6 +34,24 @@ class DefaultController extends AbstractController
      * @Route("/contact", name="www_contact")
      */
     public function contact() {
+        return $this->render('www/contact.html.twig');
+    }
 
+    /**
+     * @Route("/partners", name="www_partner")
+     */
+    public function partner() {
+        return $this->render('www/partner.html.twig');
+    }
+
+    /**
+     * @Route("/contest/{contest}/{slug}", name="www_contest")
+     * @param Contest $contest
+     * @return Response
+     */
+    public function contest(Contest $contest) {
+        return $this->render('www/contest.html.twig', [
+            'contest' => $contest
+        ]);
     }
 }

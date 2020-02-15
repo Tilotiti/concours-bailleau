@@ -91,5 +91,29 @@
         <target>Login</target>
       </segment>
     </unit>
+    <unit id="0">
+      <segment>
+        <source>contest</source>
+        <target>Contest</target>
+      </segment>
+    </unit>
+    <unit id="1">
+      <segment>
+        <source>nav.partner</source>
+        <target>Our Partners</target>
+      </segment>
+    </unit>
+    <unit id="2">
+      <segment>
+        <source>partner.link</source>
+        <target>See all the partners</target>
+      </segment>
+    </unit>
+    <unit id="3">
+      <segment>
+        <source>nav.thank</source>
+        <target>Special thanks</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

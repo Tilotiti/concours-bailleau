@@ -91,5 +91,29 @@
         <target>Se connnecter</target>
       </segment>
     </unit>
+    <unit id="0">
+      <segment>
+        <source>contest</source>
+        <target>Concours</target>
+      </segment>
+    </unit>
+    <unit id="1">
+      <segment>
+        <source>nav.partner</source>
+        <target>Nos partenaires</target>
+      </segment>
+    </unit>
+    <unit id="2">
+      <segment>
+        <source>partner.link</source>
+        <target>Voir tous les partenaires</target>
+      </segment>
+    </unit>
+    <unit id="3">
+      <segment>
+        <source>nav.thank</source>
+        <target>Remerciements</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

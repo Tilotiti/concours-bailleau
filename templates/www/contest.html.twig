@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ contest.page.title }}{% endblock %}
+{% block body %}
+    {{ contest.page.content | raw }}
+{% endblock %}

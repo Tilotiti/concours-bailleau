@@ -42,10 +42,17 @@ class Year
      */
     private $page;
 
+    /**
+     * @var Partner[]|ArrayCollection
+     * @ORM\OneToMany(targetEntity="Partner", mappedBy="year")
+     */
+    private $partners;
+
     public function __construct()
     {
         $this->id = date('Y');
         $this->contests = new ArrayCollection();
+        $this->partners = new ArrayCollection();
         $this->public = false;
     }
 
@@ -144,5 +151,21 @@ class Year
         }
 
         return $this;
+    }
+
+    /**
+     * @return Partner[]|ArrayCollection
+     */
+    public function getPartners()
+    {
+        return $this->partners;
+    }
+
+    /**
+     * @param Partner[]|ArrayCollection $partners
+     */
+    public function setPartners($partners): void
+    {
+        $this->partners = $partners;
     }
 }
