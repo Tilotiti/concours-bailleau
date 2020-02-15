@@ -26,6 +26,12 @@ class Thank implements TranslatableInterface
     private $id;
 
     /**
+     * @var Year|null
+     * @ORM\ManyToOne(targetEntity="Year")
+     */
+    private $year;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -39,5 +45,26 @@ class Thank implements TranslatableInterface
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return Year|null
+     */
+    public function getYear(): ?Year
+    {
+        return $this->year;
+    }
+
+    /**
+     * @param Year|null $year
+     */
+    public function setYear(?Year $year): void
+    {
+        $this->year = $year;
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

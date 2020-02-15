@@ -1,6 +1,6 @@
 {% extends 'admin/admin.html.twig' %}
 
-{% block title %}Concours{% endblock %}
+{% block title %}Remerciements{% endblock %}
 
 {% form_theme filter 'form/filter.html.twig' %}
 
@@ -13,28 +13,28 @@
         <thead>
             <tr>
                 <th>Année</th>
-                <th>Concours</th>
+                <th>Titre</th>
                 <th class="text-right">
-                    <a href="{{ path('admin_contest_add') }}" class="btn btn-sm btn-success">
+                    <a href="{{ path('admin_thank_add') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-plus"></i>
                     </a>
                 </th>
             </tr>
         </thead>
         <tbody>
-            {% for contest in contests %}
-                <tr class="{% if contest.year == year.get %}table-success{% endif %}">
-                    <td>{{ contest.year }}</td>
-                    <td>{{ contest.title }}</td>
+            {% for thank in thanks %}
+                <tr class="{% if thank.year == year.get %}table-success{% endif %}">
+                    <td>{{ thank.year }}</td>
+                    <td>{{ thank.title }}</td>
                     <td class="text-right">
-                        <a href="{{ path('admin_contest_edit', {
-                            'contest': contest.id
+                        <a href="{{ path('admin_thank_edit', {
+                            'thank': thank.id
                         }) }}" class="btn btn-sm btn-primary">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="{{ path('admin_contest_delete', {
-                            'contest': contest.id
-                        }) }}" class="btn btn-sm btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer ce concours ?">
+                        <a href="{{ path('admin_thank_delete', {
+                            'thank': thank.id
+                        }) }}" class="btn btn-sm btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer ce remerciement ?">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
@@ -42,11 +42,11 @@
             {% else %}
                 <tr>
                     <td colspan="3" class="text-center">
-                        <em>Aucun concours</em>
+                        <em>Aucun remerciement</em>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    {{ pagination(contests) }}
+    {{ pagination(thanks) }}
 {% endblock %}

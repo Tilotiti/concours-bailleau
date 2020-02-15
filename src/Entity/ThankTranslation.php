@@ -31,7 +31,14 @@ class ThankTranslation implements TranslationInterface
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      */
-    private $label;
+    private $title;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $content;
 
     /**
      * @return int
@@ -52,16 +59,32 @@ class ThankTranslation implements TranslationInterface
     /**
      * @return string|null
      */
-    public function getLabel(): ?string
+    public function getTitle(): ?string
     {
-        return $this->label;
+        return $this->title;
     }
 
     /**
-     * @param string|null $label
+     * @param string|null $title
      */
-    public function setLabel(?string $label): void
+    public function setTitle(?string $title): void
     {
-        $this->label = $label;
+        $this->title = $title;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string|null $content
+     */
+    public function setContent(?string $content): void
+    {
+        $this->content = $content;
     }
 }
