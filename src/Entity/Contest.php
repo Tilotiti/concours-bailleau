@@ -5,7 +5,6 @@ namespace App\Entity;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
@@ -34,22 +33,11 @@ class Contest implements TranslatableInterface
     private $year;
 
     /**
-     * @var Classe[]|ArrayCollection
-     * @ORM\OneToMany(targetEntity="Classe", mappedBy="contest")
-     */
-    private $classes;
-
-    /**
      * @var Page|null
      * @ORM\ManyToOne(targetEntity="Page", cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $page;
-
-    public function __construct()
-    {
-        $this->classes = new ArrayCollection();
-    }
 
     /**
      * @return int
@@ -115,26 +103,8 @@ class Contest implements TranslatableInterface
         $this->page = $page;
     }
 
-    public function addClass(Classe $class): self
+    public function __call($method, $arguments)
     {
-        if (!$this->classes->contains($class)) {
-            $this->classes[] = $class;
-            $class->setContest($this);
-        }
-
-        return $this;
-    }
-
-    public function removeClass(Classe $class): self
-    {
-        if ($this->classes->contains($class)) {
-            $this->classes->removeElement($class);
-            // set the owning side to null (unless already changed)
-            if ($class->getContest() === $this) {
-                $class->setContest(null);
-            }
-        }
-
-        return $this;
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

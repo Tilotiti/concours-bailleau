@@ -67,6 +67,7 @@ body > section > header {
 
 body > section > main {
     padding: 20px;
+    position: relative;
 }
 
 body > footer {
@@ -96,5 +97,19 @@ h1, h2, h3, h4, h5 {
         border: 1px solid #dee2e6;
         border-top: none;
         padding: 10px 10px 0;
+    }
+}
+
+.filter {
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+
+        .row {
+            flex-wrap: nowrap;
+        }
     }
 }

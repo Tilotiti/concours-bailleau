@@ -1,0 +1,51 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Concours{% endblock %}
+
+{% form_theme filter 'form/filter.html.twig' %}
+
+{% block filter %}
+    {{ form(filter) }}
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Année</th>
+                <th>Concours</th>
+                <th class="text-right">
+                    <a href="{{ path('admin_contest_add') }}" class="btn btn-sm btn-success">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contest in contests %}
+                <tr class="{% if contest.year == year.get %}table-success{% endif %}">
+                    <td>{{ contest.year }}</td>
+                    <td>{{ contest.title }}</td>
+                    <td class="text-right">
+                        <a href="{{ path('admin_contest_edit', {
+                            'contest': contest.id
+                        }) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="{{ path('admin_contest_delete', {
+                            'contest': contest.id
+                        }) }}" class="btn btn-sm btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer ce concours ?">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <em>Aucun concours</em>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
