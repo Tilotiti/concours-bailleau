@@ -41,6 +41,10 @@ class YearService
      */
     public function __toString(): string
     {
+        if(!$this->year) {
+            return '';
+        }
+
         return (string) $this->year->getId();
     }
 
