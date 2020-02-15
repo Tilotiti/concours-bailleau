@@ -69,15 +69,15 @@ class UserController extends AbstractController
         ?User $user = null
     )
     {
-        if(!$user) {
+        if (!$user) {
             $user = new User();
         }
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            if(!$user->getId()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$user->getId()) {
                 $user->setRoles([User::ROLE_ADMIN]);
 
                 $plainPasswod = substr(md5(time()), 0, 12);
@@ -114,5 +114,54 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/password", name="admin_user_password")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function password(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        EntityManagerInterface $entityManager
+    )
+    {
+        $user = $this->getUser();
+
+        if ($request->isMethod('POST')) {
+            if (!$passwordEncoder->isPasswordValid($user, $request->request->get('old'))) {
+                $this->addFlash('danger', "Votre mot de passe actuel ne correspond pas.");
+
+                return $this->redirectToRoute('admin_user_password');
+            }
+
+            if ($request->request->get('password') != $request->request->get('confirmation')) {
+                $this->addFlash('danger', "Votre confirmation de mot de passe ne correspond pas. Merci de réessayer.");
+
+                return $this->redirectToRoute('admin_user_password');
+            }
+
+            if (strlen($request->request->get('password')) < 6) {
+                $this->addFlash('danger', "Votre mot de passe est trop court. Merci de réessayer.");
+
+                return $this->redirectToRoute('admin_user_password');
+            }
+
+            $user->setPassword(
+                $passwordEncoder->encodePassword($user, $request->request->get('password'))
+            );
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Votre mot de passe a été modifié.");
+
+            return $this->redirectToRoute('admin_user');
+        }
+
+        return $this->render('admin/user/password.html.twig');
     }
 }

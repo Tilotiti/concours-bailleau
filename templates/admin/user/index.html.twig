@@ -29,6 +29,11 @@
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.email }}</td>
                     <td class="text-right">
+                        {% if app.user == user %}
+                            <a href="{{ path('admin_user_password') }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-lock"></i>
+                            </a>
+                        {% endif %}
                         <a href="{{ path('admin_user_edit', {
                             'user': user.id
                         }) }}" class="btn btn-sm btn-primary">
