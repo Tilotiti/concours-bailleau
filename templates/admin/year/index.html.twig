@@ -17,7 +17,7 @@
         <tbody>
             {% for item in years %}
                 <tr class="{% if item.public %}table-success{% elseif year <= item %}table-warning{% else %}table-danger{% endif %}">
-                    <td>{{ year }}</td>
+                    <td>{{ item }}</td>
                     <td class="text-right">
                         {% if not item.public %}
                             <a href="{{ path('admin_year_public', {
