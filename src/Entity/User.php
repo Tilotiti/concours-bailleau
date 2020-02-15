@@ -59,6 +59,11 @@ class User implements UserInterface
      */
     private $lastname;
 
+    public function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
+
 
     public function getId(): ?int
     {
@@ -181,7 +186,7 @@ class User implements UserInterface
      */
     public function setFirstname(?string $firstname): void
     {
-        $this->firstname = $firstname;
+        $this->firstname = ucfirst(mb_strtolower($firstname));
     }
 
     /**
@@ -197,6 +202,6 @@ class User implements UserInterface
      */
     public function setLastname(?string $lastname): void
     {
-        $this->lastname = $lastname;
+        $this->lastname = mb_strtoupper($lastname);
     }
 }

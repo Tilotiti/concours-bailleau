@@ -1,0 +1,20 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}
+    {% if user.firstname %}
+        Modifier l'utilisateur {{ user }}
+    {% else %}
+        Ajouter un utilisateur
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <div class="form-group">
+        <button class="btn btn-primary">
+            <i class="fa fa-save"></i> Enregistrer
+        </button>
+    </div>
+    {{ form_start(form) }}
+{% endblock %}

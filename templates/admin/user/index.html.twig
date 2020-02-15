@@ -1,0 +1,49 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% form_theme filter 'form/filter.html.twig' %}
+
+{% block filter %}
+    {{ form(filter) }}
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E-mail</th>
+                <th class="text-right">
+                    <a href="{{ path('admin_user_add') }}" class="btn btn-sm btn-success">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td class="text-right">
+                        <a href="{{ path('admin_user_edit', {
+                            'user': user.id
+                        }) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <em>Aucun utilisateur</em>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ pagination(users) }}
+{% endblock %}

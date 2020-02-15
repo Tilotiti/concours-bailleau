@@ -8,7 +8,7 @@
         <a href="#" class="{{ app.request.get('_route') starts with 'admin_link' ? 'active' }}">Liens</a>
         <a href="#" class="{{ app.request.get('_route') starts with 'admin_partner' ? 'active' }}">Partenaires</a>
         <a href="#" class="{{ app.request.get('_route') starts with 'admin_thank' ? 'active' }}">Remerciements</a>
-        <a href="#" class="{{ app.request.get('_route') starts with 'admin_user' ? 'active' }}">Utilisateurs</a>
+        <a href="{{ path('admin_user') }}" class="{{ app.request.get('_route') starts with 'admin_user' ? 'active' }}">Utilisateurs</a>
         <a href="{{ path('www_logout') }}">Déconnexion</a>
     </nav>
 {% endblock %}

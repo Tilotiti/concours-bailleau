@@ -40,6 +40,8 @@
         {% endblock %}
     </header>
     <main class="container-fluid">
+        {% block filter %}{% endblock %}
+        <h1>{{ block('title') }}</h1>
         {% for label, messages in app.flashes %}
             {% for message in messages %}
                 <div class="alert alert-{{ label }}">
@@ -47,8 +49,6 @@
                 </div>
             {% endfor %}
         {% endfor %}
-        {% block filter %}{% endblock %}
-        <h1>{{ block('title') }}</h1>
         {% block body %}{% endblock %}
     </main>
 </section>
