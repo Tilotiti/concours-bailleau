@@ -7,6 +7,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Partner
@@ -34,13 +36,19 @@ class Partner implements TranslatableInterface
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $logo;
 
     /**
+     * @var UploadedFile|null
+     * @Assert\Image()
+     */
+    private $file;
+
+    /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $link;
 
@@ -93,6 +101,22 @@ class Partner implements TranslatableInterface
     }
 
     /**
+     * @return UploadedFile|null
+     */
+    public function getFile(): ?UploadedFile
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param UploadedFile|null $file
+     */
+    public function setFile(?UploadedFile $file): void
+    {
+        $this->file = $file;
+    }
+
+    /**
      * @return string|null
      */
     public function getLink(): ?string
@@ -106,6 +130,11 @@ class Partner implements TranslatableInterface
     public function setLink(?string $link): void
     {
         $this->link = $link;
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 
 }

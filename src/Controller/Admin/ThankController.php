@@ -66,7 +66,7 @@ class ThankController extends AbstractController
             $this->getDoctrine()->getManager()->persist($thank);
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', "Le concours a été modifié.");
+            $this->addFlash('success', "Le remerciement a été enregistré.");
             return $this->redirectToRoute('admin_thank');
         }
 
@@ -86,7 +86,7 @@ class ThankController extends AbstractController
         $this->getDoctrine()->getManager()->remove($thank);
         $this->getDoctrine()->getManager()->flush();
 
-        $this->addFlash('success', "Le concours a été supprimé.");
+        $this->addFlash('success', "Le remerciement a été supprimé.");
 
         return $this->redirectToRoute('admin_thank');
     }

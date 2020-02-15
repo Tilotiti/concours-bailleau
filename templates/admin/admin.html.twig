@@ -5,7 +5,7 @@
         <a href="{{ path('www') }}" class="{{ app.request.get('_route') == 'www' ? 'active' }}">Site</a>
         <a href="{{ path('admin_year') }}" class="{{ app.request.get('_route') starts with 'admin_year' ? 'active' }}">Années</a>
         <a href="{{ path('admin_contest') }}" class="{{ app.request.get('_route') starts with 'admin_contest' ? 'active' }}">Concours</a>
-        <a href="#" class="{{ app.request.get('_route') starts with 'admin_partner' ? 'active' }}">Partenaires</a>
+        <a href="{{ path('admin_partner') }}" class="{{ app.request.get('_route') starts with 'admin_partner' ? 'active' }}">Partenaires</a>
         <a href="{{ path('admin_thank') }}" class="{{ app.request.get('_route') starts with 'admin_thank' ? 'active' }}">Remerciements</a>
         <a href="{{ path('admin_user') }}" class="{{ app.request.get('_route') starts with 'admin_user' ? 'active' }}">Utilisateurs</a>
         <a href="{{ path('www_logout') }}">Déconnexion</a>

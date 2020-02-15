@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "a2lix/translation-form-bundle": "^3.0",
+        "aws/aws-sdk-php": "^3.133",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "knplabs/doctrine-behaviors": "^2.0",
         "php-translation/symfony-bundle": "^0.11.3",
