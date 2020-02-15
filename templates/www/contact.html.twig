@@ -2,6 +2,14 @@
 
 {% block title %}{{ 'nav.contact' | trans }}{% endblock %}
 {% block body %}
-    {# TODO : Afficher une carte & les coordonnées du club #}
-    {# TODO : Afficher le formulaire de contact #}
+    <div id="contact">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <div class="form-group">
+            <button class="btn btn-blue btn-block btn-icon">
+                <i class="fa fa-envelope"></i> {{ 'contact.submit' | trans }}
+            </button>
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

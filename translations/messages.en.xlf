@@ -91,28 +91,58 @@
         <target>Login</target>
       </segment>
     </unit>
-    <unit id="0">
+    <unit id="XFnQwWC" name="contest">
       <segment>
         <source>contest</source>
         <target>Contest</target>
       </segment>
     </unit>
-    <unit id="1">
+    <unit id="bdcI9CH" name="nav.partner">
       <segment>
         <source>nav.partner</source>
         <target>Our Partners</target>
       </segment>
     </unit>
-    <unit id="2">
+    <unit id="yhD5SAJ" name="partner.link">
       <segment>
         <source>partner.link</source>
         <target>See all the partners</target>
       </segment>
     </unit>
-    <unit id="3">
+    <unit id="KWXV6KG" name="nav.thank">
       <segment>
         <source>nav.thank</source>
         <target>Special thanks</target>
+      </segment>
+    </unit>
+    <unit id="L3dmip3" name="Message">
+      <segment>
+        <source>Message</source>
+        <target>Message</target>
+      </segment>
+    </unit>
+    <unit id="HGIb5Ft" name="contact.submit">
+      <segment>
+        <source>contact.submit</source>
+        <target>Send</target>
+      </segment>
+    </unit>
+    <unit id="Y9zriAC" name="Phone">
+      <segment>
+        <source>Phone</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="htiPHRy" name="Lastname">
+      <segment>
+        <source>Lastname</source>
+        <target>Lastname</target>
+      </segment>
+    </unit>
+    <unit id="ZHz6kbI" name="Firstname">
+      <segment>
+        <source>Firstname</source>
+        <target>Firstname</target>
       </segment>
     </unit>
   </file>

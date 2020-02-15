@@ -91,28 +91,58 @@
         <target>Se connnecter</target>
       </segment>
     </unit>
-    <unit id="0">
+    <unit id="XFnQwWC" name="contest">
       <segment>
         <source>contest</source>
         <target>Concours</target>
       </segment>
     </unit>
-    <unit id="1">
+    <unit id="bdcI9CH" name="nav.partner">
       <segment>
         <source>nav.partner</source>
         <target>Nos partenaires</target>
       </segment>
     </unit>
-    <unit id="2">
+    <unit id="yhD5SAJ" name="partner.link">
       <segment>
         <source>partner.link</source>
         <target>Voir tous les partenaires</target>
       </segment>
     </unit>
-    <unit id="3">
+    <unit id="KWXV6KG" name="nav.thank">
       <segment>
         <source>nav.thank</source>
         <target>Remerciements</target>
+      </segment>
+    </unit>
+    <unit id="ZHz6kbI" name="Firstname">
+      <segment>
+        <source>Firstname</source>
+        <target>Prénom</target>
+      </segment>
+    </unit>
+    <unit id="htiPHRy" name="Lastname">
+      <segment>
+        <source>Lastname</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="lpzL089" name="Email">
+      <segment>
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="Y9zriAC" name="Phone">
+      <segment>
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </segment>
+    </unit>
+    <unit id="HGIb5Ft" name="contact.submit">
+      <segment>
+        <source>contact.submit</source>
+        <target>Envoyer</target>
       </segment>
     </unit>
   </file>

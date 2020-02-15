@@ -5,8 +5,13 @@ namespace App\Controller;
 
 
 use App\Entity\Contest;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\ContactType;
+use App\Repository\UserRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -32,9 +37,43 @@ class DefaultController extends AbstractController
 
     /**
      * @Route("/contact", name="www_contact")
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @param MailerInterface $mailer
+     * @return Response
+     * @throws TransportExceptionInterface
      */
-    public function contact() {
-        return $this->render('www/contact.html.twig');
+    public function contact(Request $request, UserRepository $userRepository, MailerInterface $mailer) {
+        $form = $this->createFilter(ContactType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $emails = [];
+
+            $users = $userRepository->findAll();
+
+            foreach($users as $user) {
+                $emails[] = $user->getEmail();
+            }
+
+            $email = new TemplatedEmail();
+            $email->from('concours@planeur-bailleau.org');
+            $email->to($emails);
+            $email->subject('[Concours Bailleau] Nouveau message');
+            $email->htmlTemplate('email/contact.html.twig');
+            $email->context([
+                'data' => $form->getData()
+            ]);
+
+            $mailer->send($email);
+
+            $this->addFlash('success', "contact.success");
+            return $this->redirectToRoute('www_contact');
+        }
+
+        return $this->render('www/contact.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

@@ -250,3 +250,18 @@ body > section > main > aside {
         }
     }
 }
+
+#contact {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.btn-icon {
+    text-align: left;
+
+    i {
+        float: right;
+        margin-top: 3px;
+    }
+}
