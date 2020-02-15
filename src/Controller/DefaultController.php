@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class DefaultController
@@ -43,7 +44,7 @@ class DefaultController extends AbstractController
      * @return Response
      * @throws TransportExceptionInterface
      */
-    public function contact(Request $request, UserRepository $userRepository, MailerInterface $mailer) {
+    public function contact(Request $request, UserRepository $userRepository, MailerInterface $mailer, TranslatorInterface $translator) {
         $form = $this->createFilter(ContactType::class);
         $form->handleRequest($request);
 
@@ -52,13 +53,14 @@ class DefaultController extends AbstractController
 
             $users = $userRepository->findAll();
 
-            foreach($users as $user) {
-                $emails[] = $user->getEmail();
-            }
 
             $email = new TemplatedEmail();
             $email->from('concours@planeur-bailleau.org');
-            $email->to($emails);
+
+            foreach($users as $user) {
+                $email->addTo($user->getEmail());
+            }
+
             $email->subject('[Concours Bailleau] Nouveau message');
             $email->htmlTemplate('email/contact.html.twig');
             $email->context([
@@ -67,7 +69,7 @@ class DefaultController extends AbstractController
 
             $mailer->send($email);
 
-            $this->addFlash('success', "contact.success");
+            $this->addFlash('success', $translator->trans("contact.success"));
             return $this->redirectToRoute('www_contact');
         }
 

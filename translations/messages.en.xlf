@@ -145,5 +145,17 @@
         <target>Firstname</target>
       </segment>
     </unit>
+    <unit id="lpzL089" name="Email">
+      <segment>
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+      <unit id="0">
+          <segment>
+              <source>contact.success</source>
+              <target>The message has been sent. You will soon receive an answer. Have a great day !</target>
+          </segment>
+      </unit>
   </file>
 </xliff>

@@ -145,5 +145,11 @@
         <target>Envoyer</target>
       </segment>
     </unit>
+      <unit id="0">
+          <segment>
+              <source>contact.success</source>
+              <target>Votre message a été envoyé. Vous allez bientôt recevoir une réponse. Passez une bonne journée !</target>
+          </segment>
+      </unit>
   </file>
 </xliff>
