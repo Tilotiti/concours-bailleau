@@ -27,7 +27,18 @@ $('.summernote').summernote({
         ['view', ['fullscreen', 'codeview', 'help']]
     ],
     styleTags: [
-        'p', 'h2', 'h3', 'pre'
+        {
+            tag: 'h2',
+            title: 'Titre'
+        },
+        {
+            tag: 'h3',
+            title: 'Sous-titre'
+        },
+        {
+            tag: 'p',
+            title: 'Paragraphe'
+        }
     ]
 });
 
