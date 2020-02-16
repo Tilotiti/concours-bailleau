@@ -57,6 +57,8 @@ class DefaultController extends AbstractController
             $email = new TemplatedEmail();
             $email->from('concours@planeur-bailleau.org');
 
+            $email->addTo("concours.cvve.bailleau@gmail.com");
+
             foreach($users as $user) {
                 $email->addTo($user->getEmail());
             }
