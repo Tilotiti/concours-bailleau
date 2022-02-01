@@ -6,8 +6,8 @@
  */
 
 // any CSS you import will output into a single css file (app.scss in this case)
-//import $ from 'jquery';
-import 'bootstrap';
+import $ from 'jquery';
+import "bootstrap";
 import '../css/app.scss';
 
 require('summernote/dist/summernote-bs4.css');
