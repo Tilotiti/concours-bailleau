@@ -54,6 +54,36 @@ class Year
      */
     private $thanks;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkSign;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkNews;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkPilotes;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkResults;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkDownload;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $linkGalery;
+
     public function __construct()
     {
         $this->id = date('Y');

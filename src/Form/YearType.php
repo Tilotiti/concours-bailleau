@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Year;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,6 +22,24 @@ class YearType extends AbstractType
                 ]
             ])
             ->add('page', PageType::class)
+            ->add('linkSign', TextType::class, [
+                'label' => 'iFrame Inscription Google Doc'
+            ])
+            ->add('linkNews', TextType::class, [
+                'label' => 'Liens "News"'
+            ])
+            ->add('linkPilotes', TextType::class, [
+                'label' => 'Liens "Pilotes"'
+            ])
+            ->add('linkResults', TextType::class, [
+                'label' => 'Liens "Epreuves & Résultats"'
+            ])
+            ->add('linkDownload', TextType::class, [
+                'label' => 'Liens "Téléchargement"'
+            ])
+            ->add('linkGalery', TextType::class, [
+                'label' => 'Liens "Gallerie"'
+            ])
         ;
     }
 

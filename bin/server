@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function cleanup {
+  symfony server:stop
+}
+
+trap cleanup INT TERM EXIT SIGHUP
+
+yarn dev-server &
+sleep 5 && symfony open:local &
+symfony serve

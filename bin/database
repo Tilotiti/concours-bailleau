@@ -1,10 +1,63 @@
 #!/bin/bash
 
-echo "Suppression de la base de donnée"
-dropdb concours-bailleau --u postgres
+app='concours-bailleau'
+exclude='score;word;sessions;local_source_stat;messenger_messages'
 
-echo "Importation de la base de donnée de production"
-PGUSER=postgres heroku pg:pull DATABASE_URL concours-bailleau --app concours-bailleau --exclude-table-data "sessions"
+function help() {
+	printf "Utilisation du script :\n"
+	printf "\t-f --refresh     : télécharge une version à jour de la production ;\n"
+	printf "\t-h --help        : affiche ce message.\n"
 
-echo "Lancement de l'application"
-bin/release
+	exit 0;
+}
+
+function refresh() {
+  echo "Suppression de la base de donnée locale"
+  dropdb ${app}_last --u postgres --if-exists
+
+  echo "Importation de la base de donnée locale"
+  PGUSER=postgres heroku pg:pull DATABASE_URL ${app}_last --app ${app} --exclude-table-data "${exclude}"
+}
+
+function update() {
+  echo "Suppression de la base de donnée courante"
+  dropdb ${app} --u postgres --if-exists
+
+  # Find the last downloaded database and copy it
+  echo "Création de la base de donnée courante depuis la version locale"
+  psql -U postgres -c "CREATE DATABASE \"${app}\" WITH TEMPLATE \"${app}_last\";"
+
+  bin/console doctrine:migration:migrate --no-interaction
+}
+
+# Check if a program is available on the OS
+function checkProgram() {
+  if ! [ -x "$(command -v "$1")" ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -h|--help) help;;
+        -r|--refresh) refresh ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+update
+
+# Try to send a notification to the user
+
+# Mac OS
+if checkProgram "osascript"; then
+    osascript -e 'display notification "La base de données a été mise à jour." with title "'${app}'"'
+fi;
+
+# Linux OS
+if checkProgram "notify-send"; then
+  notify-send "La base de données '${app}' a été mise à jour."
+fi;
