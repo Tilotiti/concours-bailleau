@@ -9,9 +9,6 @@
 import 'bootstrap';
 import '../css/app.scss';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-import $ from 'jquery';
-
 require('summernote/dist/summernote-bs4.css');
 require('summernote/dist/summernote-bs4.js');
 require('summernote/dist/lang/summernote-fr-FR');
