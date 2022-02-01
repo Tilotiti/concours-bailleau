@@ -221,4 +221,100 @@ class Year
     {
         $this->thanks = $thanks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkSign()
+    {
+        return $this->linkSign;
+    }
+
+    /**
+     * @param mixed $linkSign
+     */
+    public function setLinkSign($linkSign): void
+    {
+        $this->linkSign = $linkSign;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkNews()
+    {
+        return $this->linkNews;
+    }
+
+    /**
+     * @param mixed $linkNews
+     */
+    public function setLinkNews($linkNews): void
+    {
+        $this->linkNews = $linkNews;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkPilotes()
+    {
+        return $this->linkPilotes;
+    }
+
+    /**
+     * @param mixed $linkPilotes
+     */
+    public function setLinkPilotes($linkPilotes): void
+    {
+        $this->linkPilotes = $linkPilotes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkResults()
+    {
+        return $this->linkResults;
+    }
+
+    /**
+     * @param mixed $linkResults
+     */
+    public function setLinkResults($linkResults): void
+    {
+        $this->linkResults = $linkResults;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkDownload()
+    {
+        return $this->linkDownload;
+    }
+
+    /**
+     * @param mixed $linkDownload
+     */
+    public function setLinkDownload($linkDownload): void
+    {
+        $this->linkDownload = $linkDownload;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkGalery()
+    {
+        return $this->linkGalery;
+    }
+
+    /**
+     * @param mixed $linkGalery
+     */
+    public function setLinkGalery($linkGalery): void
+    {
+        $this->linkGalery = $linkGalery;
+    }
 }
