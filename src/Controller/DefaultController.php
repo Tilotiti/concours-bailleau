@@ -53,15 +53,17 @@ class DefaultController extends AbstractController
 
             $users = $userRepository->findAll();
 
-
             $email = new TemplatedEmail();
             $email->from('concours@planeur-bailleau.org');
 
-            $email->addTo("concours.cvve.bailleau@gmail.com");
+            $email->addTo("coordination.cvve.bailleau@gmail.com");
+            $email->addTo("richebracque.thib@gmail.com");
+            //$email->addTo("concours.cvve.bailleau@gmail.com");
 
+            /*
             foreach($users as $user) {
                 $email->addTo($user->getEmail());
-            }
+            }*/
 
             $email->subject('[Concours Bailleau] Nouveau message');
             $email->htmlTemplate('email/contact.html.twig');
