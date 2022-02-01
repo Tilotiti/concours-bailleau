@@ -85,7 +85,7 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd",
+            "cache:clear --no-warmup": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "fos:js-routing:dump --format=json --target=public/js/routes.json": "symfony-cmd"
         },
