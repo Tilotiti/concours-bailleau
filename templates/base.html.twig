@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ asset('build/images/favicon.ico') }}" />
 </head>
 <body>
+
 <section class="container p-0">
     <header>
         <div id="locales">
@@ -26,14 +27,29 @@
             <nav>
                 <a href="{{ path('www') }}"
                    class="{{ app.request.get('_route') == 'www' ? 'active' }}">{{ 'nav.info' | trans }}</a>
-                <a href="{{ path('www_sign') }}"
-                   class="{{ app.request.get('_route') == 'www_sign' ? 'active' }}">{{ 'nav.sign' | trans }}</a>
+                {% if year.get().linkSign %}
+                    <a href="{{ year.get().linkSign }}">{{ 'nav.sign' | trans }}</a>
+                {% endif %}
                 <a href="http://planeur-bailleau.org/" target="_blank">{{ 'nav.club' | trans }}</a>
-                <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2021-bailleau-armenonville-2021" target="_blank">{{ 'nav.news' | trans }}</a>
-                <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2021-bailleau-armenonville-2021/pilots" target="_blank">{{ 'nav.pilots' | trans }}</a>
-                <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2021-bailleau-armenonville-2021/results" target="_blank">{{ 'nav.task' | trans }}</a>
-                <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2021-bailleau-armenonville-2021/downloads" target="_blank">{{ 'nav.download' | trans }}</a>
-                <a href="https://www.soaringspot.com/{{ app.request.locale }}/international-bailleau-2021-bailleau-armenonville-2021/gallery" target="_blank">{{ 'nav.gallery' | trans }}</a>
+                {% if year.get().linkNews %}
+                    <a href="{{ year.get().linkNews }}" target="_blank">{{ 'nav.news' | trans }}</a>
+                {% endif %}
+                {% if year.get().linkPilotes %}
+                    <a href="{{ year.get().linkPilotes }}" target="_blank">{{ 'nav.pilots' | trans }}</a>
+                {% endif %}
+
+                {% if year.get().linkResults %}
+                    <a href="{{ year.get().linkResults }}" target="_blank">{{ 'nav.task' | trans }}</a>
+                {% endif %}
+
+                {% if year.get().linkDownload %}
+                    <a href="{{ year.get().linkDownload }}" target="_blank">{{ 'nav.download' | trans }}</a>
+                {% endif %}
+
+                {% if year.get().linkGalery %}
+                    <a href="{{ year.get().linkGalery }}" target="_blank">{{ 'nav.gallery' | trans }}</a>
+                {% endif %}
+
                 <a href="{{ path('www_contact') }}"
                    class="{{ app.request.get('_route') == 'www_contact' ? 'active' }}">{{ 'nav.contact' | trans }}</a>
             </nav>

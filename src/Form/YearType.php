@@ -23,22 +23,28 @@ class YearType extends AbstractType
             ])
             ->add('page', PageType::class)
             ->add('linkSign', TextType::class, [
-                'label' => 'iFrame Inscription Google Doc'
+                'label' => 'iFrame Inscription Google Doc',
+                'required' => false
             ])
             ->add('linkNews', TextType::class, [
-                'label' => 'Liens "News"'
+                'label' => 'Liens "News"',
+                'required' => false
             ])
             ->add('linkPilotes', TextType::class, [
-                'label' => 'Liens "Pilotes"'
+                'label' => 'Liens "Pilotes"',
+                'required' => false
             ])
             ->add('linkResults', TextType::class, [
-                'label' => 'Liens "Epreuves & Résultats"'
+                'label' => 'Liens "Epreuves & Résultats"',
+                'required' => false
             ])
             ->add('linkDownload', TextType::class, [
-                'label' => 'Liens "Téléchargement"'
+                'label' => 'Liens "Téléchargement"',
+                'required' => false
             ])
             ->add('linkGalery', TextType::class, [
-                'label' => 'Liens "Gallerie"'
+                'label' => 'Liens "Gallerie"',
+                'required' => false
             ])
         ;
     }
