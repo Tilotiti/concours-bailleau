@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'nav.contact' | trans }}{% endblock %}
+
 {% block body %}
     <div id="contact">
         {{ form_start(form) }}
         {{ form_rest(form) }}
         <div class="form-group">
-            <button class="btn btn-blue btn-block btn-icon">
+            <button class="btn btn-blue btn-block btn-icon g-recaptcha"
+                    data-sitekey="6LfWGgYjAAAAALNKlZnZYx0yYBtpnsWCRY1y8cvg"
+                    data-callback='onSubmit'
+                    data-action='submit'>
                 <i class="fa fa-envelope"></i> {{ 'contact.submit' | trans }}
             </button>
         </div>
         {{ form_end(form) }}
     </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("contact").closest('form').submit();
+        }
+    </script>
 {% endblock %}
