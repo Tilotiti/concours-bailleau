@@ -21,13 +21,13 @@
         "codemirror": "^5.51.0",
         "file-loader": "^6.2.0",
         "flag-icon-css": "^3.4.6",
-        "jquery": "^3.4.1",
+        "jquery": "3.4.1",
         "node-sass": "^7.0.1",
         "popper.js": "^1.16.1",
         "sass-loader": "^12.4.0",
         "summernote": "0.8.16"
     },
     "engines": {
-        "node": "17.0.1"
+        "node": "18.12.1"
     }
 }

@@ -10,9 +10,9 @@ import $ from 'jquery';
 import "bootstrap";
 import '../css/app.scss';
 
-require('summernote/dist/summernote-bs4.css');
-require('summernote/dist/summernote-bs4.js');
-require('summernote/dist/lang/summernote-fr-FR');
+import 'summernote/dist/summernote-bs4.css'
+import 'summernote/dist/summernote'
+import 'summernote/dist/lang/summernote-fr-FR'
 
 $('.summernote').summernote({
     lang: 'fr-FR',
