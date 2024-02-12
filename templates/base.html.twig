@@ -27,27 +27,29 @@
             <nav>
                 <a href="{{ path('www') }}"
                    class="{{ app.request.get('_route') == 'www' ? 'active' }}">{{ 'nav.info' | trans }}</a>
-                {% if year.get().linkSign %}
-                    <a href="{{ year.get().linkSign }}">{{ 'nav.sign' | trans }}</a>
-                {% endif %}
-                <a href="http://planeur-bailleau.org/" target="_blank">{{ 'nav.club' | trans }}</a>
-                {% if year.get().linkNews %}
-                    <a href="{{ year.get().linkNews }}" target="_blank">{{ 'nav.news' | trans }}</a>
-                {% endif %}
-                {% if year.get().linkPilotes %}
-                    <a href="{{ year.get().linkPilotes }}" target="_blank">{{ 'nav.pilots' | trans }}</a>
-                {% endif %}
+                {% if year.get() %}
+                    {% if year.get().linkSign %}
+                        <a href="{{ year.get().linkSign }}">{{ 'nav.sign' | trans }}</a>
+                    {% endif %}
+                    <a href="http://planeur-bailleau.org/" target="_blank">{{ 'nav.club' | trans }}</a>
+                    {% if year.get().linkNews %}
+                        <a href="{{ year.get().linkNews }}" target="_blank">{{ 'nav.news' | trans }}</a>
+                    {% endif %}
+                    {% if year.get().linkPilotes %}
+                        <a href="{{ year.get().linkPilotes }}" target="_blank">{{ 'nav.pilots' | trans }}</a>
+                    {% endif %}
 
-                {% if year.get().linkResults %}
-                    <a href="{{ year.get().linkResults }}" target="_blank">{{ 'nav.task' | trans }}</a>
-                {% endif %}
+                    {% if year.get().linkResults %}
+                        <a href="{{ year.get().linkResults }}" target="_blank">{{ 'nav.task' | trans }}</a>
+                    {% endif %}
 
-                {% if year.get().linkDownload %}
-                    <a href="{{ year.get().linkDownload }}" target="_blank">{{ 'nav.download' | trans }}</a>
-                {% endif %}
+                    {% if year.get().linkDownload %}
+                        <a href="{{ year.get().linkDownload }}" target="_blank">{{ 'nav.download' | trans }}</a>
+                    {% endif %}
 
-                {% if year.get().linkGalery %}
-                    <a href="{{ year.get().linkGalery }}" target="_blank">{{ 'nav.gallery' | trans }}</a>
+                    {% if year.get().linkGalery %}
+                        <a href="{{ year.get().linkGalery }}" target="_blank">{{ 'nav.gallery' | trans }}</a>
+                    {% endif %}
                 {% endif %}
 
                 <a href="{{ path('www_contact') }}"
@@ -61,29 +63,33 @@
                 <main>
                     <h2>{{ 'contest' | trans }}</h2>
                     <ul>
-                        {% for contest in year.contests %}
-                            <li>
-                                <a href="{{ path('www_contest', {
-                                    'contest': contest.id,
-                                    'slug': contest.slug
-                                }) }}">
-                                    <strong>{{ contest.title }}</strong>
-                                    {{ contest.description }}
-                                </a>
-                            </li>
-                        {% endfor %}
+                        {% if year.get() %}
+                            {% for contest in year.contests %}
+                                <li>
+                                    <a href="{{ path('www_contest', {
+                                        'contest': contest.id,
+                                        'slug': contest.slug
+                                    }) }}">
+                                        <strong>{{ contest.title }}</strong>
+                                        {{ contest.description }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </main>
                 <aside>
                     <h3>{{ 'nav.partner' | trans }}</h3>
                     <ul>
-                        {% for partner in year.partners | filter(partner => partner.logo) %}
-                            <li>
-                                <a href="{{ partner.link ?? '#' }}" title="{{ partner.title }}" target="_blank">
-                                    <img src="{{ partner.logo }}" alt="{{ partner.title }}">
-                                </a>
-                            </li>
-                        {% endfor %}
+                        {% if year.get() %}
+                            {% for partner in year.partners | filter(partner => partner.logo) %}
+                                <li>
+                                    <a href="{{ partner.link ?? '#' }}" title="{{ partner.title }}" target="_blank">
+                                        <img src="{{ partner.logo }}" alt="{{ partner.title }}">
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                     <a href="{{ path('www_partner') }}">{{ 'partner.link' | trans }}</a>
                 </aside>

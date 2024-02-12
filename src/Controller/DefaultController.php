@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Contest;
 use App\Form\ContactType;
 use App\Repository\UserRepository;
+use App\Service\YearService;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,14 @@ class DefaultController extends AbstractController
     /**
      * @Route("", name="www")
      */
-    public function index() {
+    public function index(
+        YearService $yearService
+    ) {
+
+        if(!$yearService->get()) {
+            return $this->redirectToRoute('admin');
+        }
+
         return $this->render('www/index.html.twig');
     }
 
