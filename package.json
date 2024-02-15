@@ -21,7 +21,7 @@
         "codemirror": "^5.51.0",
         "file-loader": "^6.2.0",
         "flag-icon-css": "^3.4.6",
-        "jquery": "3.4.1",
+        "jquery": "3.5.0",
         "node-sass": "^7.0.1",
         "popper.js": "^1.16.1",
         "sass-loader": "^12.4.0",
